@@ -23,7 +23,7 @@ The steps I have followed in my code:
 
 Before test the code be sure you have pandas and python with version >= 3.7 installed by running: 'pip show pandas' and 'python -V'
 
-If pandas is not install run 'pip install pandas'
+If pandas is not installed run 'pip install pandas'
 
 To reproduce the test run the following command:
 * python percentile.py --input input_filename.parquet --output output_filename.parquet --percentile 0.9
