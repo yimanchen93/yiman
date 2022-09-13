@@ -14,15 +14,17 @@ In the parquet file there are in total 19 columns and 2463931 rows, and the foll
 - VendorID should be distinct to null, all the taxis should have its own vendor.
 
 SOLUTION:
-** The steps I have followed in my code:
+The steps I have followed in my code:
 1. read parquet file
 2. filter out data that has data quality issues
 3. use df.column_name.quantile() to calculate trips over 0.9 percentile in distance traveled, quantile_num = percentile/100 = 0.9/100=0.009  --> dataframe.trip_distance.quantile(quantile_num)
 4. filter out records with percentile over 0.9 in the result dataframe
 5. write the result dataframe in an output parquet file.
 
-** before test the code be sure you have pandas and python with version >= 3.7 installed by running 'pip show pandas' and 'python -V'.
+Before test the code be sure you have pandas and python with version >= 3.7 installed by running: 'pip show pandas' and 'python -V'
 
-** To reproduce the test run the following command:
-python percentile.py --input input_filename.parquet --output output_filename.parquet --percentile 0.9
-example: python percentile.py --input yellow_tripdata_2022-01.parquet --output test.parquet --percentile 0.9
+If pandas is not install run 'pip install pandas'
+
+To reproduce the test run the following command:
+* python percentile.py --input input_filename.parquet --output output_filename.parquet --percentile 0.9
+* example: python percentile.py --input yellow_tripdata_2022-01.parquet --output test.parquet --percentile 0.9
